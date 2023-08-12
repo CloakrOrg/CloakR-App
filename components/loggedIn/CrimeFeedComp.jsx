@@ -3,7 +3,14 @@ import React from "react";
 
 const CrimeFeedComp = ({ navigation }) => {
   return (
-    <View>
+    <View
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+      }}
+    >
       <Text>CrimeFeedComp</Text>
       <TouchableOpacity onPress={() => navigation.navigate("ViewSingleCrime")}>
         <Text>View Single Crime</Text>

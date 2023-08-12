@@ -17,37 +17,40 @@ const AadharComp = ({ navigation }) => {
         height: "100%",
       }}
     >
-      <Text>CloakR</Text>
-      <Text>Enter Addhar No</Text>
+      <Text style={{ fontSize: 30, fontWeight: "800" }}> CloakR</Text>
+
       <View
         style={{
-          width: "100%",
+          width: "80%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          marginTop: 20,
         }}
       >
+        <Text style={{ alignSelf: "flex-start", fontSize: 15 }}>
+          Enter Addhar No
+        </Text>
         <TextInput
           placeholder="8865-8510-4865"
-          style={{ borderWidth: 1, width: "80%" }}
+          style={{ borderWidth: 1, width: "100%" }}
           textAlign={"center"}
         ></TextInput>
       </View>
       <TouchableOpacity
-          onPress={() => navigation.navigate("OtpPage")}
-          style={{
-            backgroundColor: "#FFA500",
-            padding: 10,
-            margin: 2,
-            width: "80%",
-            position:"absolute",
-            bottom:10,
-            borderRadius: 5,
-
-          }}
-        >
-          <Text style={{ textAlign: "center" }}>Send OTP</Text>
-        </TouchableOpacity>
+        onPress={() => navigation.navigate("OtpPage")}
+        style={{
+          backgroundColor: "#FFA500",
+          padding: 10,
+          margin: 2,
+          width: "80%",
+          position: "absolute",
+          bottom: 10,
+          borderRadius: 5,
+        }}
+      >
+        <Text style={{ textAlign: "center" }}>Send OTP</Text>
+      </TouchableOpacity>
     </View>
   );
 };

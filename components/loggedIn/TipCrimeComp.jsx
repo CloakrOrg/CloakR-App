@@ -3,7 +3,14 @@ import React from "react";
 
 const TipCrimeComp = ({ navigation }) => {
   return (
-    <View>
+    <View
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+      }}
+    >
       <Text>TipCrimeComp</Text>
       <TouchableOpacity onPress={() => navigation.navigate("ProfilePage")}>
         <Text>Go to profile</Text>

@@ -1,9 +1,15 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  SafeAreaView,
+} from "react-native";
 import React from "react";
 
 const UserDetailsComp = ({ navigation }) => {
   return (
-    <View
+    <SafeAreaView
       style={{
         display: "flex",
         justifyContent: "center",
@@ -11,11 +17,28 @@ const UserDetailsComp = ({ navigation }) => {
         height: "100%",
       }}
     >
-      <Text>UserDetailsComp</Text>
-      <TouchableOpacity onPress={() => navigation.navigate("UserNamePage")}>
-        <Text>Confirm</Text>
+      <Text style={{ fontSize: 20, fontWeight: 800 }}>Aadhar Details</Text>
+      <View style={{ marginTop: 20 }}>
+        <Text>Name: Rajdeep Ghosh</Text>
+        <Text>Phone: +91 8240336721</Text>
+        <Text>State: West Bengal</Text>
+        <Text>Aadhar No: 886585104865</Text>
+      </View>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("UserNamePage")}
+        style={{
+          backgroundColor: "#FFA500",
+          padding: 10,
+          margin: 2,
+          width: "80%",
+          position: "absolute",
+          bottom: 10,
+          borderRadius: 5,
+        }}
+      >
+        <Text style={{ textAlign: "center" }}>Confirm</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
