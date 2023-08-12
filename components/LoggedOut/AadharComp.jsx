@@ -17,7 +17,7 @@ const AadharComp = ({ navigation }) => {
         height: "100%",
       }}
     >
-      <Text style={{ fontSize: 30, fontWeight: "800" }}> CloakR</Text>
+      <Text style={{ fontSize: 40, fontWeight: "800", marginBottom: 20 }}> CloakR</Text>
 
       <View
         style={{
@@ -28,12 +28,12 @@ const AadharComp = ({ navigation }) => {
           marginTop: 20,
         }}
       >
-        <Text style={{ alignSelf: "flex-start", fontSize: 15 }}>
+        <Text style={{ alignSelf: "flex-start", fontSize: 15, marginBottom: 8 }}>
           Enter Addhar No
         </Text>
         <TextInput
           placeholder="8865-8510-4865"
-          style={{ borderWidth: 1, width: "100%" }}
+          style={{ borderWidth: 1, width: "100%", height: 40, borderRadius: 20 }}
           textAlign={"center"}
         ></TextInput>
       </View>
