@@ -15,4 +15,3 @@ const UserProfileComp = ({handleLogout}) => {
 export default UserProfileComp;
 
 const styles = StyleSheet.create({});
-ghjv

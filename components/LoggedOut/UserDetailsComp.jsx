@@ -1,15 +1,24 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React from "react";
 
-const UserDetailsComp = ({navigation}) => {
+const UserDetailsComp = ({ navigation }) => {
   return (
-    <View>
+    <View
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+      }}
+    >
       <Text>UserDetailsComp</Text>
-      <TouchableOpacity onPress={()=>navigation.navigate("UserNamePage")}><Text>Confirm</Text></TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("UserNamePage")}>
+        <Text>Confirm</Text>
+      </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
-export default UserDetailsComp
+export default UserDetailsComp;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

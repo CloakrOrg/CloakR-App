@@ -41,7 +41,7 @@ export default function App() {
 function LoggedInView({handleLogout}) {
   const Stack = createNativeStackNavigator();
   return (
-    <Stack.Navigator initialRouteName='CrimeFeed' >
+    <Stack.Navigator initialRouteName='CrimeFeed'screenOptions={{ headerShown: false }} >
       <Stack.Screen name="CrimeFeed" component={CrimeFeedComp} />
       <Stack.Screen name="ViewSingleCrime" component={ViewSingleCrimeComp} />
       <Stack.Screen name="TipCrime" component={TipCrimeComp} />
@@ -55,7 +55,7 @@ function LoggedInView({handleLogout}) {
 function LoggedOutView({handleLogin}) {
   const Stack = createNativeStackNavigator();
   return (
-    <Stack.Navigator initialRouteName='Aadharpage'>
+    <Stack.Navigator initialRouteName='Aadharpage' screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Aadharpage" component={AadharComp} />
       <Stack.Screen name="OtpPage" component={OtpComp} />
       <Stack.Screen name="UserDetails" component={UserInfoComp} />
