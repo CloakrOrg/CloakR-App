@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import React from "react";
 
-const UserDetailsComp = ({ navigation }) => {
+const UserDetailsComp = ({ navigation, handleLogin }) => {
   return (
     <SafeAreaView
       style={{
@@ -25,7 +25,7 @@ const UserDetailsComp = ({ navigation }) => {
         <Text>Aadhar No: 886585104865</Text>
       </View>
       <TouchableOpacity
-        onPress={() => navigation.navigate("UserNamePage")}
+        onPress={handleLogin}
         style={{
           backgroundColor: "#FFA500",
           padding: 10,

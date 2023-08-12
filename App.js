@@ -38,10 +38,10 @@ export default function App() {
   );
 }
 
-function LoggedInView({handleLogout}) {
+function LoggedInView({ handleLogout }) {
   const Stack = createNativeStackNavigator();
   return (
-    <Stack.Navigator initialRouteName='CrimeFeed'screenOptions={{ headerShown: false }} >
+    <Stack.Navigator initialRouteName='CrimeFeed' screenOptions={{ headerShown: false }} >
       <Stack.Screen name="CrimeFeed" component={CrimeFeedComp} />
       <Stack.Screen name="ViewSingleCrime" component={ViewSingleCrimeComp} />
       <Stack.Screen name="TipCrime" component={TipCrimeComp} />
@@ -52,15 +52,14 @@ function LoggedInView({handleLogout}) {
   )
 }
 
-function LoggedOutView({handleLogin}) {
+function LoggedOutView({ handleLogin }) {
   const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator initialRouteName='Aadharpage' screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Aadharpage" component={AadharComp} />
       <Stack.Screen name="OtpPage" component={OtpComp} />
-      <Stack.Screen name="UserDetails" component={UserInfoComp} />
-      <Stack.Screen name="UserNamePage" children={() => {
-        return <UserName handleLogin={handleLogin} />
+      <Stack.Screen name="UserDetails" children={() => {
+        return <UserInfoComp handleLogin={handleLogin} />
       }} />
     </Stack.Navigator>
   )

@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
 const UserName = ({ handleLogin }) => {
+  const [isNewUser, setIsNewUser] = useState(false);
+
   return (
     <View
       style={{
@@ -11,7 +13,8 @@ const UserName = ({ handleLogin }) => {
         height: "100%",
       }}
     >
-      <Text>UserName</Text>
+      <Text></Text>
+      {isNewUser ? <Text>Enter your name</Text> : <Text>Welcome back Helio@K</Text>}
       <TouchableOpacity onPress={handleLogin}>
         <Text>Get Started</Text>
       </TouchableOpacity>
