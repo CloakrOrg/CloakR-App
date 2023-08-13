@@ -7,6 +7,46 @@ import {
   Image,
 } from "react-native";
 import React from "react";
+import SelectDropdown from "react-native-select-dropdown";
+
+const states = [
+  "AN",
+  "AP",
+  "AR",
+  "AS",
+  "BR",
+  "CH",
+  "CT",
+  "DNDD",
+  "DL",
+  "GA",
+  "GJ",
+  "HR",
+  "HP",
+  "JK",
+  "JH",
+  "KA",
+  "KL",
+  "LA",
+  "LD",
+  "MP",
+  "MH",
+  "MN",
+  "ML",
+  "MZ",
+  "NL",
+  "OD",
+  "PY",
+  "PB",
+  "RJ",
+  "SK",
+  "TN",
+  "TG",
+  "TR",
+  "UP",
+  "UK",
+  "WB",
+];
 
 const CrimeFeedComp = ({ navigation }) => {
   return (
@@ -37,12 +77,35 @@ const CrimeFeedComp = ({ navigation }) => {
             alignItems: "center",
           }}
         >
-          <Text style={{ marginRight: 10 }}>CloakR</Text>
-          <Text>DropDown</Text>
+          <Image
+            source={require("../../assets/logo.png")}
+            style={{ height: 27, width: 100, marginRight: 10 }}
+          ></Image>
+          <SelectDropdown
+            data={states}
+            buttonStyle={{
+              borderRadius: 15,
+              width: 80,
+              height: 40,
+            }}
+            defaultValueByIndex={35}
+            onSelect={(selectedItem, index) => {
+              console.log(selectedItem, index);
+            }}
+            buttonTextAfterSelection={(selectedItem, index) => {
+              return selectedItem;
+            }}
+            rowTextForSelection={(item, index) => {
+              return item;
+            }}
+          />
         </View>
-        <View>
-          <Text>P</Text>
-        </View>
+        <Image
+          source={{
+            uri: "https://static.vecteezy.com/system/resources/previews/002/275/847/non_2x/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg",
+          }}
+          style={{ height: 50, width: 50, borderRadius: 100 }}
+        ></Image>
       </View>
       {/* render this below component 10 times */}
       {singleCrime(navigation)}
@@ -50,7 +113,6 @@ const CrimeFeedComp = ({ navigation }) => {
       {singleCrime(navigation)}
       {singleCrime(navigation)}
       {singleCrime(navigation)}
-
     </SafeAreaView>
   );
 };
@@ -103,4 +165,4 @@ function singleCrime(navigation) {
       </View>
     </TouchableOpacity>
   );
-};
+}
