@@ -4,29 +4,61 @@ import {
   View,
   TouchableOpacity,
   TextInput,
+  SafeAreaView,
+  Image,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
 const OtpComp = ({ navigation }) => {
+  const [otpNo, setOtpNo] = useState("");
   return (
-    <View
+    <SafeAreaView
       style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         height: "100%",
+        padding: 20,
       }}
     >
-      <Text style={{ fontSize: 20, fontWeight: "800" }}>Enter OTP</Text>
-      <TextInput
-        placeholder="123456"
-        style={{ borderWidth: 1, width: "80%", marginTop: 20 }}
-        textAlign={"center"}
-      ></TextInput>
+      <Image
+        source={require("../../assets/logo.png")}
+        style={{ height: 32, width: 120, }}
+      ></Image>
+
+      <View
+        style={{
+          width: "80%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: 300,
+        }}
+      >
+        <Text
+          style={{ alignSelf: "flex-start", fontSize: 15, marginBottom: 8 }}
+        >
+          Enter OTP
+        </Text>
+        <TextInput
+          placeholder="221345"
+          keyboardType="numeric"
+          style={{
+            borderWidth: 1,
+            width: "100%",
+            height: 40,
+            borderRadius: 20,
+          }}
+          onChangeText={(text) => setOtpNo(text)}
+          value={otpNo}
+          maxLength={6}
+          textAlign={"center"}
+        ></TextInput>
+      </View>
       <TouchableOpacity
         onPress={() => navigation.navigate("UserDetails")}
         style={{
-          backgroundColor: "#FFA500",
+          backgroundColor: "#fccc3c",
           padding: 10,
           margin: 2,
           width: "80%",
@@ -35,9 +67,9 @@ const OtpComp = ({ navigation }) => {
           borderRadius: 5,
         }}
       >
-        <Text style={{ textAlign: "center" }}>Verify OTP</Text>
+        <Text style={{ textAlign: "center" }}>Verify</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 

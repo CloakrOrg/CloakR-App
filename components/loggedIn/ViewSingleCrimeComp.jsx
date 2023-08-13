@@ -42,12 +42,14 @@ const ViewSingleCrimeComp = ({ navigation }) => {
             style={{ height: 27, width: 100, marginRight: 10 }}
           ></Image>
         </View>
-        <Image
-          source={{
-            uri: "https://static.vecteezy.com/system/resources/previews/002/275/847/non_2x/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg",
-          }}
-          style={{ height: 50, width: 50, borderRadius: 100 }}
-        ></Image>
+        <TouchableOpacity onPress={() => navigation.navigate("ProfilePage")}>
+          <Image
+            source={{
+              uri: "https://static.vecteezy.com/system/resources/previews/002/275/847/non_2x/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg",
+            }}
+            style={{ height: 50, width: 50, borderRadius: 100 }}
+          ></Image>
+        </TouchableOpacity>
       </View>
       <View>
         <Image
@@ -75,9 +77,9 @@ const ViewSingleCrimeComp = ({ navigation }) => {
         </Text>
       </View>
       <TouchableOpacity
-      onPress={()=>navigation.navigate("TipCrime")}
+        onPress={() => navigation.navigate("TipCrime")}
         style={{
-          backgroundColor: "yellow",
+          backgroundColor: "#fccc3c",
           padding: 5,
           width: "100%",
           borderRadius: 10,

@@ -5,9 +5,11 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Image,
+  ScrollView,
 } from "react-native";
 import React from "react";
 import SelectDropdown from "react-native-select-dropdown";
+import SingleCrime from "./SingleCrime";
 
 const states = [
   "AN",
@@ -48,6 +50,82 @@ const states = [
   "WB",
 ];
 
+export const crimes = [
+  {
+    title: "Mysterious Disappearance of Local Man",
+    location: "Winstonville, Greene County",
+    reward: "$1000",
+    verified: true,
+    image:
+      "https://static.tnn.in/photo/msid-97095168,width-100,height-200,resizemode-75/97095168.jpg",
+  },
+  {
+    title: "Rare Antique Painting Stolen from Museum",
+    location: "Eldridge City, Westdale",
+    reward: "€ 20000",
+    verified: false,
+    image:
+      "https://static.tnn.in/photo/msid-97095168,width-100,height-200,resizemode-75/97095168.jpg",
+  },
+  {
+    title: "Suspicious Fire Destroys Historic Landmark",
+    location: "Crimsonville, Hemlock County",
+    reward: "$5000",
+    verified: true,
+    image:
+      "https://static.tnn.in/photo/msid-97095168,width-100,height-200,resizemode-75/97095168.jpg",
+  },
+  {
+    title: "Elderly Woman Missing, Family Seeks Help",
+    location: "Willowbrook, Fairfield Parish",
+    reward: "£ 300",
+    image:
+      "https://static.tnn.in/photo/msid-97095168,width-100,height-200,resizemode-75/97095168.jpg",
+  },
+  {
+    title: "Famous Racehorse Kidnapped from Stable",
+    location: "Silverton, Marigold County",
+    reward: "$15000",
+    image:
+      "https://static.tnn.in/photo/msid-97095168,width-100,height-200,resizemode-75/97095168.jpg",
+  },
+  {
+    title: "Mysterious Disappearance of Local Man",
+    location: "Winstonville, Greene County",
+    reward: "$1000",
+    image:
+      "https://static.tnn.in/photo/msid-97095168,width-100,height-200,resizemode-75/97095168.jpg",
+  },
+  {
+    title: "Rare Antique Painting Stolen from Museum",
+    location: "Eldridge City, Westdale",
+    reward: "€ 20000",
+    image:
+      "https://static.tnn.in/photo/msid-97095168,width-100,height-200,resizemode-75/97095168.jpg",
+  },
+  {
+    title: "Suspicious Fire Destroys Historic Landmark",
+    location: "Crimsonville, Hemlock County",
+    reward: "$5000",
+    image:
+      "https://static.tnn.in/photo/msid-97095168,width-100,height-200,resizemode-75/97095168.jpg",
+  },
+  {
+    title: "Elderly Woman Missing, Family Seeks Help",
+    location: "Willowbrook, Fairfield Parish",
+    reward: "£ 300",
+    image:
+      "https://static.tnn.in/photo/msid-97095168,width-100,height-200,resizemode-75/97095168.jpg",
+  },
+  {
+    title: "Famous Racehorse Kidnapped from Stable",
+    location: "Silverton, Marigold County",
+    reward: "$15000",
+    image:
+      "https://static.tnn.in/photo/msid-97095168,width-100,height-200,resizemode-75/97095168.jpg",
+  },
+];
+
 const CrimeFeedComp = ({ navigation }) => {
   return (
     <SafeAreaView
@@ -67,6 +145,7 @@ const CrimeFeedComp = ({ navigation }) => {
           justifyContent: "space-between",
           alignItems: "center",
           width: "100%",
+          marginBottom: 20,
         }}
       >
         <View
@@ -87,6 +166,8 @@ const CrimeFeedComp = ({ navigation }) => {
               borderRadius: 15,
               width: 80,
               height: 40,
+              borderColor: "#fccc3c",
+              borderWidth: 1,
             }}
             defaultValueByIndex={35}
             onSelect={(selectedItem, index) => {
@@ -100,19 +181,22 @@ const CrimeFeedComp = ({ navigation }) => {
             }}
           />
         </View>
-        <Image
-          source={{
-            uri: "https://static.vecteezy.com/system/resources/previews/002/275/847/non_2x/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg",
-          }}
-          style={{ height: 50, width: 50, borderRadius: 100 }}
-        ></Image>
+        <TouchableOpacity onPress={()=>navigation.navigate("ProfilePage")}>
+          <Image
+            source={{
+              uri: "https://static.vecteezy.com/system/resources/previews/002/275/847/non_2x/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg",
+            }}
+            style={{ height: 50, width: 50, borderRadius: 100 }}
+          ></Image>
+        </TouchableOpacity>
       </View>
-      {/* render this below component 10 times */}
-      {singleCrime(navigation)}
-      {singleCrime(navigation)}
-      {singleCrime(navigation)}
-      {singleCrime(navigation)}
-      {singleCrime(navigation)}
+      <ScrollView>
+        {crimes.map((crime, index) => {
+          return (
+            <SingleCrime crime={crime} navigation={navigation} key={index} />
+          );
+        })}
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -121,17 +205,17 @@ export default CrimeFeedComp;
 
 const styles = StyleSheet.create({});
 
-function singleCrime(navigation) {
+function singleCrime({ navigation, crime }) {
   return (
     <TouchableOpacity
       style={{
         display: "flex",
         flexDirection: "row",
-        justifyContent: "flex-center",
-        alignItems: "flex-center",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
         width: "100%",
         marginTop: 20,
-        backgroundColor: "#FFA500",
+        backgroundColor: "#fccc3c",
         borderRadius: 15,
         padding: 25,
       }}
@@ -151,9 +235,7 @@ function singleCrime(navigation) {
         }}
       ></Image>
       <View>
-        <Text style={{ fontSize: 20, fontWeight: "800" }}>
-          Teenager 14, murdered ..
-        </Text>
+        <Text style={{ fontSize: 15 }}>{crime?.title}</Text>
         <Text style={{ fontSize: 14, fontWeight: "400" }}>Kalyanni, Nadia</Text>
         <View
           style={{
